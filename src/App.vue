@@ -1,15 +1,15 @@
 <template>
   <v-app>
     <v-toolbar app>
-      <v-toolbar-side-icon @click="openSideMenu"></v-toolbar-side-icon>
+      <v-toolbar-side-icon @click.stop="openSideMenu"></v-toolbar-side-icon>
       <v-toolbar-title class="headline text-uppercase">
         <span>マイアドレス帳</span>
       </v-toolbar-title>
       <v-spacer></v-spacer>
     </v-toolbar>
     <SideNav/>
+
     <v-content>
-     <HelloWorld/>
     </v-content>
   </v-app>
 </template>
@@ -18,7 +18,7 @@
 import SideNav from './components/SideNav'
 export default {
   name: 'App',
-  components:{
+  components: {
     SideNav
   },
   data () {
@@ -27,7 +27,7 @@ export default {
     }
   },
   methods: {
-    openSideMenu(){
+    openSideMenu () {
       this.$store.dispatch('toggleSideMenu')
     }
   }
